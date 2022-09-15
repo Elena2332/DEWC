@@ -1,6 +1,5 @@
 window.onload
 {
-    let texto="";
     let num=prompt("Introduce numero");
     let factorial=num;
     for(; num!=1 ;num--)
