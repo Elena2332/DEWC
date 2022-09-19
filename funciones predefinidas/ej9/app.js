@@ -1,5 +1,4 @@
-let newWindow;
-
+let ventana;
 let nom;
 let btnEntrar;
 window.onload
@@ -15,11 +14,10 @@ function abrirVentana()
         alert('Introduce el nombre :)');
     else
     {
-        newWindow=window.open('','_blank','width=200','height=200','menubar=yes','resizable=no','scrollbars=no','toolbar=no','location=no','status=no','top=50','left=150');
-        let eleP_texto=document.createElement("p");
-        eleP_texto.innerHTML="Bienvenido "+nom.value;
-        newWindow.document.body.appendChild(eleP_texto);
-        // text.innerHTML = "Bienvenido "+nom;
+        ventana = window.open('','_blank','width=200','height=200','menubar=yes','resizable=no','scrollbars=no','toolbar=no','location=no','status=no','top=50','left=150');
+        let texto = document.createElement("p");
+        texto.innerHTML = "Bienvenido "+ nom.value;
+        ventana.document.body.appendChild(texto);
     }
          
 }
