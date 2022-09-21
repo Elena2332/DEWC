@@ -7,7 +7,7 @@ window.onload
     btnEntrar = document.getElementById("btnEntrar");
     btnEntrar.addEventListener("click", abrirVentana);
 }
-// ancho/2   alto/4
+
 function abrirVentana()
 {
     let ancho= screen.width;

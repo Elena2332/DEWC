@@ -12,32 +12,17 @@ function abrirVentanas()
     {
         let ventana = window.open('','_blank','width=200','height=200'); //crear ventana
         let btnCerrar = document.createElement("button"); //crear boton
-        btnCerrar.innerHTML = "Cerrar";        
+        btnCerrar.innerHTML = "Cerrar"; 
+        btnCerrar.id = i;       
         btnCerrar.addEventListener('click', cerrarVentana);
         ventana.document.body.appendChild(btnCerrar);   //aniadir el boton a la ventana
-        ventanasCreadas[btnCerrar] = ventana;
+        ventanasCreadas[i] = ventana;
     }
-    
 }
 
-function cerrarVentana(e)
+function cerrarVentana()
 {
-    let btn = e.currentTarget;
-    let ventana = ventanasCreadas[btn];
+    let ventana = ventanasCreadas[this.id];
     ventana.close();
 }
 
-
-/* Funciona ""   cierra solo una ventana
-function abrirVentanas()
-{
-    for(let i=0; i<5 ; i++)
-    {
-        let ventana = window.open('','_blank','width=200','height=200'); //crear ventana
-        let btnCerrar = document.createElement("button"); //crear boton
-        btnCerrar.innerHTML = "Cerrar";        
-        btnCerrar.addEventListener('click', cerrarVentana);
-        ventana.document.body.appendChild(btnCerrar);   //aniadir el boton a la ventana
-        ventanasCreadas[btnCerrar] = ventana;
-    }        
-}  */
