@@ -1,15 +1,15 @@
 let enlace; 
+let txtEscondido;
 
 window.onload = function() 
 {
     enlace = document.getElementById("enlace");
+    txtEscondido = document.getElementById("adicional");
 }
 
 
 function muestra()
 {
     enlace.setAttribute("class", "oculto");
-    let pNuevo=document.createElement("p");
-    pNuevo.innerHTML= "Este es el parrafo oculto que acaba de aparecer :)";
-    document.body.appendChild(pNuevo);
+    adicional.setAttribute("class","visible");
 }
