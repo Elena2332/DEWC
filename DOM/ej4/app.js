@@ -1,13 +1,21 @@
-let lista;
+let inpIni, inpFin;
+let btn;
 window.onload = function() 
 {
-    lista = document.getElementById("lista");
+    inpIni = document.getElementById("inpIni");
+    inpFin = document.getElementById("inpFin");
+    btn = document.getElementById("btn");
+    btn.addEventListener("click", anade);
 }
 
 
 function anade() 
 {
-    let liNuevo = document.createElement("li");
-    liNuevo.textContent="Texto por defocto :)";
-    lista.appendChild(liNuevo);
+    if(inpIni.value.length>0)
+    {
+        inpFin.value = inpIni.value;
+        inpIni.value = "";
+    }
+    else
+        alert("Introduce texto a la izquierda");
 }
