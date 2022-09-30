@@ -1,10 +1,9 @@
 let continentes = ["Seleccione continente","Europa","Asia","Africa","America","Oceania"];
-let pEuropa = ["0","1","2","3","4","5","6","7","8","9"];
-// let pEuropa = ["España","Francia","Italia","Alemania","Belgica"];
-let pAsia = ["China","Japon","Iran","Iraq","Afganistan","Paquistan"];
-let pAfrica = ["Marruecos","Nigeria","Zambia","Lesoto","Argelia","Somalia"];
-let pAmerica = ["Canada","Estados Unidos","Mexico","Argentina","Chile"];
-let pOceania = ["Australia","Nueva Zelanda","Tonga","Samoa","Isla Marshall","Isla Salomon"];
+let pEuropa = ["Seleccione continente","España","Francia","Italia","Alemania","Belgica"];
+let pAsia = ["Seleccione continente","China","Japon","Iran","Iraq","Afganistan","Paquistan"];
+let pAfrica = ["Seleccione continente","Marruecos","Nigeria","Zambia","Lesoto","Argelia","Somalia"];
+let pAmerica = ["Seleccione continente","Canada","Estados Unidos","Mexico","Argentina","Chile"];
+let pOceania = ["Seleccione continente","Australia","Nueva Zelanda","Tonga","Samoa","Isla Marshall","Isla Salomon"];
 let selecContinente, selecPais;
 let anterior = 0;
 
@@ -23,7 +22,7 @@ window.onload
 
 function llenarPaises()
 {
-    vaciar();
+    selecPais.innerHTML="";
 
     let seleccionado = selecContinente.value;
     switch(seleccionado)
@@ -58,38 +57,4 @@ function llenarPaises()
             anterior = 5;
             break;
     }
-}
-
-function vaciar()
-{
-    for(var j=0; j<=selecPais.options.length ;j++)
-    {
-        console.log(selecPais.options[j]);
-        selecPais.remove(j);
-    }
-        
-    // switch(anterior)
-    // {
-    //     case "1":     //anterior: Europa
-    //         for(var i=0; i<=pEuropa.length ;i++)
-    //             selecPais.remove(i);
-    //         break;
-    //     case "2":     //anterior: Asia
-    //         for(var i=0; i<=pAsia.length ;i++)
-    //             selecPais.remove(i);
-    //         anterior = 1;
-    //         break;
-    //     case "3":     //anterior: Africa
-    //         for(var i=0; i<=pAfrica.length ;i++) 
-    //             selecPais.remove(i);
-    //         break;
-    //     case "4":     //anterior: America
-    //         for(var i=0; i<=pAmerica.length ;i++)
-    //             selecPais.remove(i);
-    //         break;
-    //     default:     //anterior: Oceania
-    //         for(var i=0; i<=pOceania.length ;i++)
-    //             selecPais.remove(i);
-    //         break;
-    // }
 }
