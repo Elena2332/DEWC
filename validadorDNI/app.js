@@ -1,4 +1,5 @@
-/* Debemos obtener el resto de la división entera del número del DNI y el número 23. Con el resto de esa división obtenemos la letra seleccionándola del Array de letras siguiente:
+/* Debemos obtener el resto de la división entera del número del DNI y el número 23. Con el resto de esa división obtenemos 
+la letra seleccionándola del Array de letras siguiente:
 
 var letras = ['T', 'R', 'W', 'A', 'G', 'M', 'Y', 'F', 'P', 'D', 'X', 'B', 'N', 'J', 'Z', 'S', 'Q', 'V', 'H', 'L', 'C', 'K', 'E', 'T'];
 
@@ -47,14 +48,24 @@ function validar()
             let res = 0;
             for(let i=0; i<len ;i++)
                 res = res + parseInt(num.charAt(i));
-            res = Math.floor(res/23);   // suma/23 = posicion del caracter
+            res = res%23;   // suma/23 = posicion del caracter
+            console.log("resto "+res);
             let letraCorrecta = letras[res];
+            console.log("letra del array "+letraCorrecta);
+            console.log("letra input "+(inpLetra.value).toUpperCase());
             if(letraCorrecta == (inpLetra.value).toUpperCase())
             {
                 let lblCorr = document.createElement("p");
                 lblCorr.innerHTML = "<strong>Es VALIDO</strong>"; 
                 lblCorr.style = "color: green;"; 
                 document.body.appendChild(lblCorr); 
+            }
+            else
+            {
+                let lblErr = document.createElement("p");
+                lblErr.innerHTML = "<strong>Es INVALIDO</strong>"; 
+                lblErr.style = "color: red;"; 
+                document.body.appendChild(lblErr); 
             }
         }
     }
