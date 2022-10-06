@@ -1,10 +1,10 @@
 let buttons;
-let operadores = ["+","-","*","/","Raiz","%"]; 
+let operadores = ["+","-","*","/","%"]; 
 let numeros = ["1","2","3","4","5","6","7","8","9","0"];
 let inpTxt;
 let btnAnterior = "";
 
-window.onload = function() 
+window.onload
 {
     inpTxt = document.getElementById("inpNums");
     buttons = document.getElementsByTagName("button");
@@ -34,6 +34,7 @@ function pulsar()
             inpTxt.value = inpTxt.value+txtBtn;
         else
         {
+            let num;
             switch(txtBtn)
             {
                 case "C":
@@ -41,19 +42,30 @@ function pulsar()
                     break;
                 case "CE":
                     // borra un numero entero
+                    inpTxt.value = inpTxt.value.substring(0,ultimoNumero());
                     break;
                 case "R":
                     // borra un caracter
+                    inpTxt.value = inpTxt.value.substring(0,inpTxt.value.length-1);
+                    break;
+                case "Raiz":
+                    num = inpTxt.value.substring(ultimoNumero(),inpTxt.value.length);
+                    num = Math.sqrt(num);
+                    inpTxt.value = inpTxt.value.substring(0,ultimoNumero()-1)+num; 
                     break;
                 case "1/x":
+                    num = inpTxt.value.substring(ultimoNumero(),inpTxt.value.length);
+                    num = Function("return 1/("+num+")")();
+                    inpTxt.value = inpTxt.value.substring(0,ultimoNumero()-1)+num; 
                     break;
                 case "+/-":
+                    num = inpTxt.value.substring(ultimoNumero(),inpTxt.value.length);
+                    num = parseInt(num)*(-1);
+                    inpTxt.value = inpTxt.value.substring(0,ultimoNumero())+num;
                     break;
                 case ".":
-                    if(btnAnterior)
-                    {
+                    if(numeros.includes(btnAnterior))
                         inpTxt.value = inpTxt.value+txtBtn;
-                    }
                     break;
                 case "=":
                     if(operadores.includes(btnAnterior) || btnAnterior==".")  // si lo ultimo es un operador o .
@@ -71,4 +83,23 @@ function pulsar()
         }        
     }
     btnAnterior = txtBtn;
+}
+
+
+function ultimoNumero()  // devuelve donde empieza el ultimo numero
+{
+    for(let i=inpTxt.value.length-1; i>=0 ; i--)
+    {
+        if(operadores.includes(inpTxt.value.charAt(i)))
+        {
+            if(i > 0)
+            {
+                if(operadores.includes(inpTxt.value.charAt(i-1)))
+                    return i;
+                else
+                    return i+1;
+            }
+        }
+    }
+    return 0;
 }
