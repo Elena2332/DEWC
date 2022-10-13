@@ -1,39 +1,61 @@
 let inpDni,inpNom,inpNac,inpNH,inpEmail,inpPag,inpPass;
-let btnComprobar
+let btnComprobar;
 
 window.onload
 {
-    //elementos
-    inpDni = document.getElementById("inpDNI");
-    inpNom = document.getElementById("inpNom");
-    inpNac = document.getElementById("inpFecha");
-    inpNH = document.getElementById("inpNH");
-    inpEmail = document.getElementById("inpEmail");
-    inpPag = document.getElementById("inpPag");
-    inpPass = document.getElementById("inpPass");
-    btnComprobar = document.getElementById("btnComprobar");
-    
-    //eventos
-    // inpDni = document.addEventListener("blur",validarDni);   // cuando pierde el focous
-    inpNom = document.addEventListener("blur",validarNom);
-    inpNac = document.addEventListener("blur",validarNac);
-    inpNH = document.addEventListener("blur",validarNH);
-    inpEmail = document.addEventListener("blur",validarEmail);
-    inpPag = document.addEventListener("blur",validarPag);
-    inpPass = document.addEventListener("blur",validarPass);
-    inpDni = document.addEventListener("focusout",validarDni)
+    btnComprobar = document.getElementById("btnComprobar"); 
     btnComprobar.addEventListener("click",comprobar);
+    let arrInps = document.getElementsByTagName('input');
+    for(let i=0; i<arrInps.length; i++)
+        arrInps[i].addEventListener("focusout",validar);   // "focusout" y "blur" evento cuanto pierde el foco
+        //validarCasilla(arrayInputs[i].id, arrayInputs[i].value);
+    
+}
+function validar()
+{
+    let id = this.id;
+    let texto = this.value;
+    if(texto.length > 0)
+    {
+        switch (id) 
+        {
+            case 'inpDNI':
+                if (!(/^\d{8}[a-zA-Z]$/.test(texto)))
+                    document.getElementById(id).value = "";
+                break;
+            case 'inpNom':
+                if (!(/^[a-zA-Z ]*$/.test(texto)))
+                    document.getElementById(id).value = "";
+                break;
+            case 'inpNH':
+                if (texto<0 || texto>10)
+                    document.getElementById(id).value = "";
+                break;
+            case 'inpFecha':
+                if (!(/^$/.test(texto)))
+                    document.getElementById(id).value = "";
+                break;
+            case 'inpEmail':
+                if (!(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(texto)))
+                    document.getElementById(id).value = "";
+                break;
+            case 'inpPag':
+                if (!(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(texto)))
+                    document.getElementById(id).texto = "";
+                break;
+            case 'inpPass':
+                if (!(/(^[0-9\s\+\-])+$/.test(texto)))
+                    document.getElementById(id).value = "";
+                break;
+        }
+    }
+    
 }
 
-function validarDni()
-{
-    console.log('patata');
-    console.log(this.id);
-    let txtinp = this.value;
-}
 
 function comprobar()
 {
-
+    console.log('aaaaaaa');
+    validar();
 }
 
