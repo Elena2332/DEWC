@@ -11,39 +11,65 @@ window.onload
 }
 function validar(aux)
 {
-    // let id;
-    // if(!esInp(this.id))
-    //     id = this.id;
-    // else
-    //     id = aux;
-    // let inp = document.getElementById(id);    
-    if(inp.value != undefined)
+    let id;
+    if(this.id == undefined)
+        id = aux.id;
+    else
+        id = this.id;
+    let inp = document.getElementById(id); 
+    if(inp.value != "")
     {
         let texto = inp.value;
         switch(id) 
         {
             case 'inpDNI':
                 if (!(/^\d{8}[a-zA-Z]$/.test(texto)))
+                {
                     inp.value = "";
+                    inp.style = "border: 1px solid red; border-radius:5px;"
+                }
+                else
+                    inp.style = "";
                 break;
             case 'inpNom':
                 if (!(/^[a-zA-Z ]*$/.test(texto)))
+                {
                     inp.value = "";
+                    inp.style = "border: 1px solid red; border-radius:5px;"
+                }
+                else
+                    inp.style = "";
                 break;
             case 'inpNH':
                 if (texto<0 || texto>10)
+                if (!(/^[a-zA-Z ]*$/.test(texto)))
+                {
                     inp.value = "";
+                    inp.style = "border: 1px solid red; border-radius:5px;"
+                }
+                else
+                    inp.style = "";
                 break;
             case 'inpEmail':
                 if (!(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(texto)))
+                {
                     inp.value = "";
+                    inp.style = "border: 1px solid red; border-radius:5px;"
+                }
+                else
+                    inp.style = "";
                 break;
             case 'inpPass':
                 if (!(/(^[0-9\s\+\-])+$/.test(texto)))
+                {
                     inp.value = "";
+                    inp.style = "border: 1px solid red; border-radius:5px;"
+                }
+                else
+                    inp.style = "";
                 break;
         }
-    }    
+    }   
 }
 
 function comprobar()
