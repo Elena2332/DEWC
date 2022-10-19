@@ -23,15 +23,15 @@ function calcular()
     //Procedencia
     switch(marca)
     {
-        case 1:
+        case "1":
             res = BASICO + (BASICO*0.15);
             console.log('a');
             break;
-        case 2:
+        case "2":
             res = BASICO + (BASICO*0.05);
             console.log('b');
             break;
-        case 3:
+        case "3":
             res = BASICO + (BASICO*0.35);
             console.log('c');
             break;
