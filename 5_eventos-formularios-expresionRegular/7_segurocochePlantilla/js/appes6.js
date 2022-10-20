@@ -25,15 +25,12 @@ function calcular()
     {
         case "1":
             res = BASICO + (BASICO*0.15);
-            console.log('a');
             break;
         case "2":
             res = BASICO + (BASICO*0.05);
-            console.log('b');
             break;
         case "3":
             res = BASICO + (BASICO*0.35);
-            console.log('c');
             break;
         default:
             console.log('d');
