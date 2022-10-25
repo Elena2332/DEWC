@@ -1,4 +1,5 @@
 let inpDni, inpNom, inpNac, inpDir, inpEmail, selTer, selProv, selMun, chekPermisos;
+let edad = 0;
 let territorios = ["Euskadi", "Nafarroa", "Iparralde"];
 let provincias = [
     ["Araba", "Bizkaia", "Gipuzkoa"],
@@ -83,7 +84,7 @@ function validar()
     {
         if(/^(?:(?:(?:0?[1-9]|1\d|2[0-8])[/](?:0?[1-9]|1[0-2])|(?:29|30)[/](?:0?[13-9]|1[0-2])|31[/](?:0?[13578]|1[02]))[/](?:0{2,3}[1-9]|0{1,2}[1-9]\d|0?[1-9]\d{2}|[1-9]\d{3})|29[/]0?2[/](?:\d{1,2}(?:0[48]|[2468][048]|[13579][26])|(?:0?[48]|[13579][26]|[2468][048])00))$/.test(txt))
         {
-            let edad = calcularEdad(txt);
+            edad = calcularEdad(txt);
         }
         else
             console.log('formato nacimiento incorrecto')
@@ -193,5 +194,6 @@ function guardarDatos()
     //     console.log(datos);
     //     document.getElementById("mensaje").innerHTML = datos.marcado;
     // }
+    window.location.href="";
 }
 
