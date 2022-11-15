@@ -17,10 +17,10 @@ function cargarProvincia()
         method: "post",
         body: formulario
     }).then((response) => {
-        console.log(response.json()) 
+        console.log( response.json()) 
     }).then((data) => {
-        /*mas acciones a realizar*/
-    })
+        console.log(data)
+    });
 }
 
 function cargarMunicipios()
