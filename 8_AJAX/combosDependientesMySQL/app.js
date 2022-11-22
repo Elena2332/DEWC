@@ -12,7 +12,13 @@ window.onload
 
 function cargarProvincias ()
 {
-    fetch("cargaProvinciasJSON.php") 
+    let options = {
+        method: "POST",
+        headers: { "Content-type": "application/x-www-form-urlencoded; charset=UTF-8" },
+        body : "tipo=provincia"
+    };
+
+    fetch("cargaProvinciasJSON.php", options) 
         .then(data => data.json())
         .then(json => {
             console.log(json);
